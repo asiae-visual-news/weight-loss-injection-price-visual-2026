@@ -42,6 +42,24 @@
 @media(max-width:760px){.hero{background:radial-gradient(ellipse at 68% 56%,rgba(103,142,121,.24),transparent 42%),linear-gradient(160deg,#10251f,#18382e 58%,#0b1c18)}.scene{height:360px}.back-shelves{top:15px;width:100%;height:295px}.ticket{top:145px}.supply-tag{top:85px;left:calc(50% + 68px);font-size:10px}.supply-tag:before{left:-235px;width:340px}}
 @media(max-width:380px){.scene{height:335px}.ticket{top:135px}.supply-tag{top:78px;left:calc(50% + 55px)}.supply-tag:before{left:-210px;width:300px}}
 
+
+.purchase-interaction{display:grid;grid-template-columns:.82fr 1.18fr;gap:22px;align-items:stretch;margin-top:34px}
+.purchase-controls,.purchase-visual{background:#e9e5da;border:1px solid var(--line);padding:25px}
+.control-title{font:800 19px/1.4 var(--sans);color:var(--green)}
+.quantity-switch{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.quantity-button{min-height:50px;padding:10px;border:1px solid rgba(23,69,56,.3);background:#f8f5ed;color:var(--green);font:800 16px var(--sans);cursor:pointer}
+.quantity-button:hover,.quantity-button:focus-visible{outline:3px solid rgba(50,121,133,.28);outline-offset:2px}
+.quantity-button.is-active{background:var(--green);border-color:var(--green);color:#fffaf1}
+.control-hint{font:500 15px/1.55 var(--sans);color:var(--muted);margin-top:17px}
+.purchase-visual{background:#f8f5ed;min-height:290px}
+.purchase-visual-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;color:var(--green)}
+.purchase-visual-head strong{font:800 18px var(--sans)}.purchase-visual-head span{font:600 13px var(--sans);color:var(--muted)}
+.purchase-visual .box-grid{display:block;width:min(100%,380px);height:175px;margin:10px auto 0;overflow:visible}
+.purchase-explanation{font:700 17px/1.55 var(--sans);color:var(--green);margin-top:3px}
+.purchase-footnote{font:500 13px/1.5 var(--sans);color:var(--muted);margin-top:9px}
+.margin-grid{grid-template-columns:1fr}.margin-copy{max-width:690px;margin:auto}
+@media(max-width:760px){.purchase-interaction{grid-template-columns:1fr;gap:12px;margin-top:25px}.purchase-controls,.purchase-visual{padding:20px}.purchase-visual{min-height:250px}.purchase-visual .box-grid{height:150px}.purchase-visual-head strong{font-size:17px}.purchase-explanation{font-size:17px}}
+
 </style>
 </head>
 <body>
@@ -84,16 +102,28 @@
 </div></section>
 <section class="section mechanism"><div class="inner">
 <div class="mechanism-top"><p class="eyebrow">공급가와 사입가는 다릅니다</p><h2>약국은 어떻게<br>공급가보다 싸게 팔까요?</h2><p>공급가는 제약사가 정한 기준 가격입니다. 사입가는 약국이 도매상에서 약을 살 때 물량과 결제 조건에 따라 정해집니다.</p></div>
-<div class="buy-grid">
-<article class="buy-card"><h3>10개를 사는 약국</h3><p>구매 물량이나 결제 조건에 따라 도매상과의 거래 조건이 달라질 수 있습니다.</p><span class="stack-label">실제 약 상자 10개</span><div class="box-grid-wrap"><svg class="box-grid" data-count="10" viewBox="0 0 220 150" role="img" aria-label="약 상자 10개를 5개씩 두 줄로 쌓아 그린 3차원 그림"></svg></div></article>
-<article class="buy-card"><h3>100개를 사는 약국</h3><p>규모가 큰 약국일수록 공급가보다 낮게 사들일 수 있습니다.</p><span class="stack-label">실제 약 상자 100개</span><div class="box-grid-wrap"><svg class="box-grid" data-count="100" viewBox="0 0 220 150" role="img" aria-label="약 상자 100개를 10개씩 열 줄로 배열한 3차원 그림"></svg></div></article>
+<div class="purchase-interaction">
+<div class="purchase-controls">
+<p class="control-title">약국의 매입 수량을 바꿔보세요</p>
+<div class="quantity-switch" role="group" aria-label="약국의 매입 수량 선택">
+<button type="button" class="quantity-button is-active" data-quantity="10" aria-pressed="true">10개 구매</button>
+<button type="button" class="quantity-button" data-quantity="100" aria-pressed="false">100개 구매</button>
+</div>
+<p class="control-hint">수량에 따라 달라질 수 있는 약국의 매입 조건을 살펴봅니다.</p>
+</div>
+<div class="purchase-visual">
+<div class="purchase-visual-head"><strong id="purchaseLabel">약 상자 10개</strong><span id="purchaseCount">5개씩 두 줄</span></div>
+<svg class="box-grid" id="interactiveBoxes" viewBox="0 0 220 150" role="img" aria-label="약 상자 10개"></svg>
+<p class="purchase-explanation" id="purchaseExplanation">소량을 매입하는 약국은 거래 조건에 따라 사입가가 달라질 수 있습니다.</p>
+<p class="purchase-footnote">상자 하나가 약 한 상자를 뜻하는 수량 비교입니다. 실제 매입 조건은 약국마다 다릅니다.</p>
+</div>
 </div>
 <blockquote class="quote">“10개를 사는 곳과 100개를 사는 곳의 거래 조건이 다르다”며 “규모가 큰 곳일수록 공급가보다 싸게 살 수 있다”고 말했습니다.</blockquote>
 <div class="narration mechanism-note"><p>마운자로와 위고비는 건강보험이 적용되지 않는 비급여 의약품이어서 정부가 정한 가격 상한선이나 하한선도 없습니다.</p></div>
 </div></section>
 <section class="section margin-section"><div class="inner margin-grid">
 <div class="margin-copy"><p class="eyebrow">박리다매식 가격 경쟁</p><h2>가격은 내리고,<br>남는 돈도 줄었습니다</h2><p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p><p>한 약사는 최저가 광고로 환자를 모으기 위해 1000원, 2000원 단위로 가격을 깎으며 출혈 경쟁을 벌이고 있다고 말했습니다.</p><p>약값 인하 경쟁은 약국에만 그치지 않고, 병원에서 약을 직접 구매해 판매하는 원내 판매 가격에도 영향을 미치는 분위기라고 덧붙였습니다.</p></div>
-<div class="receipt-stage" aria-label="약국 마진이 1만원 미만으로 추정된다는 내용의 영수증 그래픽"><div class="receipt"><p class="receipt-brand">약국 가격 기록</p><p class="receipt-row"><span>마운자로 최저가</span><strong>272,000원</strong></p><p class="receipt-row"><span>위고비 최저가</span><strong>212,000원</strong></p><p class="receipt-profit">약국 판매 마진 추정<strong>1만원 미만</strong></p><p class="receipt-foot">업계 추정치 · 약국별 사입가에 따라 다를 수 있습니다</p></div></div>
+
 </div></section>
 <section class="ending"><div class="inner ending-copy">
 <p>진료비와 약값이 함께 내려가면서, 박리다매식 가격 경쟁이 무분별한 처방으로 이어질 수 있다는 우려도 나옵니다.</p>
@@ -103,7 +133,36 @@
 </main>
 <footer>가격 정보는 기사에 기재된 시점의 서울 소재 약국 최저가와 공급가 기준입니다.</footer>
 <script>
-(function(){document.querySelectorAll(".box-grid").forEach(function(svg){var count=Number(svg.getAttribute("data-count"));var cols=count===10?5:10;var rows=count/cols;var w=count===10?23:10;var h=count===10?22:10;var d=count===10?5:2.5;var gx=count===10?8:2;var gy=count===10?12:2;var totalW=cols*w+(cols-1)*gx+d;var totalH=rows*h+(rows-1)*gy+d;var sx=(220-totalW)/2+d;var sy=(150-totalH)/2+d;var out="";for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){var x=sx+c*(w+gx);var y=sy+r*(h+gy);out+='<g><polygon class="box-top" points="'+x+','+y+' '+(x+d)+','+(y-d)+' '+(x+w+d)+','+(y-d)+' '+(x+w)+','+y+'"></polygon><polygon class="box-side" points="'+(x+w)+','+y+' '+(x+w+d)+','+(y-d)+' '+(x+w+d)+','+(y+h-d)+' '+(x+w)+','+(y+h)+'"></polygon><rect class="box-front" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="1"></rect></g>'}}svg.innerHTML=out});var bar=document.getElementById("progress");function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%"}window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update()})();
+(function(){
+var svg=document.getElementById("interactiveBoxes");
+var buttons=document.querySelectorAll(".quantity-button");
+var label=document.getElementById("purchaseLabel");
+var countLabel=document.getElementById("purchaseCount");
+var explanation=document.getElementById("purchaseExplanation");
+function drawBoxes(count){
+var cols=count===10?5:10,rows=count/cols;
+var w=count===10?27:14,h=count===10?24:10.5,d=count===10?5:2.5;
+var gx=count===10?10:4.5,gy=count===10?13:2.5;
+var totalW=cols*w+(cols-1)*gx+d,totalH=rows*h+(rows-1)*gy+d;
+var sx=(220-totalW)/2+d,sy=(150-totalH)/2+d,out="";
+for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){
+var x=sx+c*(w+gx),y=sy+r*(h+gy);
+out+='<g><polygon class="box-top" points="'+x+','+y+' '+(x+d)+','+(y-d)+' '+(x+w+d)+','+(y-d)+' '+(x+w)+','+y+'"></polygon><polygon class="box-side" points="'+(x+w)+','+y+' '+(x+w+d)+','+(y-d)+' '+(x+w+d)+','+(y+h-d)+' '+(x+w)+','+(y+h)+'"></polygon><rect class="box-front" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="1"></rect></g>';
+}}
+svg.innerHTML=out;svg.setAttribute("aria-label","약 상자 "+count+"개");
+label.textContent="약 상자 "+count+"개";countLabel.textContent=count===10?"5개씩 두 줄":"10개씩 열 줄";
+explanation.textContent=count===10?"소량을 매입하는 약국은 거래 조건에 따라 사입가가 달라질 수 있습니다.":"대량 구매 약국은 도매상과의 거래 조건에 따라 공급가보다 낮은 사입가를 적용받을 수 있습니다.";
+}
+buttons.forEach(function(button){button.addEventListener("click",function(){
+var count=Number(button.getAttribute("data-quantity"));
+buttons.forEach(function(item){var active=item===button;item.classList.toggle("is-active",active);item.setAttribute("aria-pressed",String(active));});
+drawBoxes(count);
+});});
+drawBoxes(10);
+var bar=document.getElementById("progress");
+function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";}
+window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
+})();
 </script>
 </body>
 </html>
