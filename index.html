@@ -23,6 +23,25 @@
 @media(max-width:760px){body{font-size:20px}.hero{min-height:auto;padding:62px 19px 22px}.hero-inner{grid-template-columns:1fr;gap:0}.hero h1{font-size:clamp(40px,10vw,58px)}.hero-copy{font-size:20px;margin-top:18px}.scene{height:340px;order:2;margin-top:0}.counter{bottom:28px;height:110px;width:94%}.shelf{top:21px;transform:translateX(-50%) rotateX(57deg) rotateZ(-7deg) scale(.82)}.injector{right:calc(50% - 138px);bottom:43px;transform:scale(.83) rotate(22deg) rotateY(-13deg)}.ticket{top:88px;width:218px;padding:13px 15px}.ticket-value{font-size:33px}.supply-tag{top:205px;left:calc(50% + 70px);font-size:10px;padding:8px}.scroll-cue{margin:18px 0 0}.section{padding:75px 20px}.price-section{padding:70px 20px}.cards{grid-template-columns:1fr;gap:15px}.drug-card{padding:21px 22px}.timeline-grid{grid-template-columns:1fr;gap:30px}.trend{padding:18px}.buy-grid{grid-template-columns:1fr;gap:14px}.buy-card{min-height:260px;padding:21px}.quote{font-size:18px}.margin-grid{grid-template-columns:1fr;gap:25px}.receipt-stage{min-height:280px}.receipt{width:min(290px,87vw)}.ending{padding:76px 20px}.final-quote{padding:23px 21px}.last-line{margin-top:55px}}
 @media(max-width:380px){.hero h1{font-size:39px}.scene{height:310px}.ticket{top:83px}.supply-tag{top:193px;left:calc(50% + 55px)}.injector{right:calc(50% - 121px);bottom:39px;transform:scale(.72) rotate(22deg) rotateY(-13deg)}.trend-head{align-items:start}.trend-old,.trend-now{font-size:12px}.trend-now strong{font-size:23px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+/* Visual direction: a deep, dim pharmacy with a price tag crossing below the supply-price line. */
+.hero{color:#f7f4eb;background:radial-gradient(ellipse at 68% 40%,rgba(103,142,121,.25),transparent 38%),linear-gradient(118deg,#10251f 0%,#18382e 48%,#0b1c18 100%)}
+.hero:before{background-image:linear-gradient(rgba(228,238,227,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(228,238,227,.055) 1px,transparent 1px);mask-image:linear-gradient(transparent,black 12%,black 85%,transparent)}
+.hero .eyebrow{color:#c4d9c9}.hero h1 em{color:#73c2bd}.hero-copy{color:#d3ddd4}.scroll-cue{color:#edf3ec}.scroll-cue:before{background:#70c4bd}
+.scene{isolation:isolate}
+.back-shelves{position:absolute;z-index:-1;top:28px;left:50%;width:min(480px,100%);height:310px;transform:translateX(-50%) perspective(900px) rotateY(-8deg) rotateX(3deg);background:linear-gradient(180deg,rgba(222,236,221,.08),rgba(13,35,28,.14));border:1px solid rgba(227,239,226,.14);box-shadow:inset 0 0 45px rgba(0,0,0,.27),0 30px 50px rgba(0,0,0,.18)}
+.back-shelves:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 68px,rgba(206,223,207,.4) 68px 74px,rgba(8,28,22,.82) 74px 83px);box-shadow:inset 0 0 0 12px rgba(8,26,21,.3)}
+.back-shelves:after{content:"";position:absolute;inset:14px 12px 18px;background:repeating-linear-gradient(90deg,transparent 0 36px,rgba(235,243,233,.09) 36px 38px,transparent 38px 73px);opacity:.85}
+.counter{background:linear-gradient(140deg,#315e4e,#102a22);box-shadow:0 40px 35px rgba(0,0,0,.43),inset 0 1px rgba(255,255,255,.22)}
+.medbox{background:linear-gradient(90deg,#fffdf8 0 83%,#c8d8ce 83%);box-shadow:7px 12px 0 #b8c8bd,10px 17px 15px rgba(0,0,0,.35)}
+.ticket{top:168px;border-top-color:#54b5b3;box-shadow:13px 19px 0 rgba(3,28,24,.38),0 24px 45px rgba(0,0,0,.36);animation:priceDrop 1.1s cubic-bezier(.2,.8,.2,1) both}
+.ticket-value{color:#167c80}
+.supply-tag{top:109px;left:calc(50% + 120px);z-index:4;background:#edba59;color:#24342d}
+.supply-tag:before{content:"";position:absolute;z-index:-1;left:-340px;top:50%;width:500px;border-top:2px dashed rgba(237,186,89,.86);filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+@keyframes priceDrop{from{opacity:0;transform:translate(-50%,-65px) rotateX(8deg) rotateZ(-5deg)}to{opacity:1;transform:translate(-50%,0) rotateX(8deg) rotateZ(-5deg)}}
+@media(max-width:760px){.hero{background:radial-gradient(ellipse at 68% 56%,rgba(103,142,121,.24),transparent 42%),linear-gradient(160deg,#10251f,#18382e 58%,#0b1c18)}.scene{height:360px}.back-shelves{top:15px;width:100%;height:295px}.ticket{top:145px}.supply-tag{top:85px;left:calc(50% + 68px);font-size:10px}.supply-tag:before{left:-235px;width:340px}}
+@media(max-width:380px){.scene{height:335px}.ticket{top:135px}.supply-tag{top:78px;left:calc(50% + 55px)}.supply-tag:before{left:-210px;width:300px}}
+
 </style>
 </head>
 <body>
@@ -37,7 +56,7 @@
 <p class="scroll-cue">스크롤을 내려 가격표를 확인해보세요</p>
 </div>
 <div class="scene" aria-label="약국 카운터 위에서 공급가보다 낮은 판매가를 보여주는 3차원 가격표">
-<div class="shelf" aria-hidden="true"><i class="medbox"></i><i class="medbox"></i><i class="medbox"></i></div><div class="injector" aria-hidden="true"><i></i></div>
+<div class="back-shelves" aria-hidden="true"></div><div class="shelf" aria-hidden="true"><i class="medbox"></i><i class="medbox"></i><i class="medbox"></i></div><div class="injector" aria-hidden="true"><i></i></div>
 <div class="ticket"><span class="ticket-label">마운자로 2.5㎎ · 4주분 최저가</span><strong class="ticket-value">272,000원</strong><p class="ticket-note">공급가보다 6,066원 낮습니다</p></div>
 <div class="supply-tag">공급가 278,066원</div><div class="counter" aria-hidden="true"></div>
 </div>
