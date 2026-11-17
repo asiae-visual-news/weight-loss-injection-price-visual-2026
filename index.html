@@ -60,10 +60,183 @@
 .margin-grid{grid-template-columns:1fr}.margin-copy{max-width:690px;margin:auto}
 @media(max-width:760px){.purchase-interaction{grid-template-columns:1fr;gap:12px;margin-top:25px}.purchase-controls,.purchase-visual{padding:20px}.purchase-visual{min-height:250px}.purchase-visual .box-grid{height:150px}.purchase-visual-head strong{font-size:17px}.purchase-explanation{font-size:17px}}
 
+
+/* Six vertical beats, paced like a short-form story. */
+:root{--drop:#55d0c5;--red:#55d0c5;--gold:#edba59}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{background:#0d1715;color:#f4f3ec;font-size:20px}
+.progress{height:5px;background:rgba(255,255,255,.16);z-index:60}
+.progress i{background:linear-gradient(90deg,#5de1d4,#c6f7ee)}
+.shot-counter{position:fixed;z-index:55;right:22px;top:18px;display:flex;align-items:baseline;gap:5px;color:#f3f5ef;font:700 12px var(--sans);letter-spacing:.1em;text-shadow:0 2px 9px #000}
+.shot-counter b{font-size:20px;color:#79ded3}
+main>section{position:relative;min-height:100svh;padding:clamp(72px,9vh,112px) clamp(22px,6vw,84px);display:grid;align-items:center;overflow:hidden}
+main>section:after{position:absolute;z-index:0;top:30px;left:clamp(22px,6vw,84px);font:800 11px var(--sans);letter-spacing:.2em;color:rgba(255,255,255,.42);pointer-events:none}
+main>section>*{position:relative;z-index:1}
+.hero{min-height:100svh;background:radial-gradient(ellipse at 66% 44%,rgba(70,173,150,.28),transparent 34%),linear-gradient(130deg,#07100e,#102922 56%,#07100e)}
+.hero:after{content:"01 / 가격이 무너진 첫 장면"}
+.hero-inner{width:min(1220px,100%);gap:clamp(10px,3vw,50px)}
+.hero h1{font-size:clamp(46px,7vw,88px);line-height:1.05;text-wrap:balance}
+.hero h1 em{color:#65ded0}
+.hero-copy{font-size:clamp(18px,2vw,23px);color:#d7e5dd;max-width:470px}
+.scene{height:min(74vh,650px);min-height:440px}
+.back-shelves{top:3%;width:100%;height:82%;border-color:rgba(230,255,240,.2);background:linear-gradient(180deg,rgba(116,188,160,.13),rgba(3,17,14,.42));box-shadow:inset 0 0 80px rgba(0,0,0,.4),0 50px 90px rgba(0,0,0,.48)}
+.back-shelves:before{background:repeating-linear-gradient(to bottom,transparent 0 65px,rgba(192,228,203,.55) 65px 71px,rgba(5,20,16,.9) 71px 84px)}
+.ticket{top:clamp(100px,22vh,195px);width:min(320px,76%);padding:22px 20px 24px;box-shadow:18px 24px 0 rgba(0,0,0,.36),0 32px 60px rgba(0,0,0,.48);animation:priceDrop 1.35s cubic-bezier(.2,.8,.2,1) both}
+.ticket-value{font-size:clamp(39px,5vw,54px);color:#117d7b}
+.ticket-note{font-size:14px}
+.supply-tag{top:clamp(46px,10vh,102px);font-size:15px;padding:12px 15px}
+.supply-tag:before{border-top-width:3px}
+.injector{filter:drop-shadow(12px 16px 10px rgba(0,0,0,.35))}
+.scroll-cue{font-size:15px}
+.price-section{background:radial-gradient(circle at 85% 18%,rgba(71,142,127,.35),transparent 30%),linear-gradient(145deg,#13382f,#102b25 60%,#091a17);color:#f7f3e9}
+.price-section:after{content:"02 / 약값은 공급가 아래로"}
+.price-section .inner,.timeline-grid,.mechanism>.inner,.margin-grid,.ending-copy{width:min(1050px,100%);margin:auto}
+.price-section .eyebrow,.timeline .eyebrow,.mechanism .eyebrow,.margin-section .eyebrow{font-size:14px;letter-spacing:.17em;color:#8ce1d5}
+.price-section h2,.section h2{font-size:clamp(38px,5.8vw,68px);line-height:1.05;letter-spacing:-.05em}
+.price-intro{max-width:760px;color:#d9e9df;font-size:19px;line-height:1.55;margin:20px 0 30px}
+.cards{gap:14px}
+.drug-card{background:#f9f5eb;border-radius:3px;padding:clamp(16px,2.5vw,28px);box-shadow:0 16px 38px rgba(0,0,0,.3);transform:translateY(0)}
+.drug-card:nth-child(2){background:#e7f3ed}
+.drug-title{font-size:17px}
+.dose,.drug-caption{font-size:15px}
+.drug-price{font-size:clamp(34px,4.5vw,54px);color:#123b32}
+.compare-line{font-size:15px}
+.compare-line b{font-size:20px;color:#087d78}
+.market-context{margin-top:20px;color:#e0e9e1;font-size:18px}
+.source{font-size:13px;margin-top:8px}
+.timeline{background:radial-gradient(ellipse at 20% 15%,rgba(76,139,128,.3),transparent 34%),#101e1b;color:#f8f4e9}
+.timeline:after{content:"03 / 내려가는 속도는 다르다"}
+.timeline-grid{grid-template-columns:1fr 1fr;gap:clamp(25px,5vw,68px)}
+.timeline-copy h2{font-size:clamp(39px,5.5vw,66px)}
+.timeline-copy p:last-child{color:#c5d5cc;font-size:18px}
+.trend-list{gap:16px}
+.trend{background:rgba(242,246,236,.08);border:1px solid rgba(205,239,222,.22);padding:22px;box-shadow:none}
+.trend-head b{font-size:16px;color:#edf4ec}
+.trend-head span{font-size:14px;color:#77ddd1}
+.trend-values{margin-top:22px}
+.trend-old,.trend-now{font-size:15px;color:#c4d3cb}
+.trend-now strong{font-size:clamp(27px,3vw,38px);color:#73ddd1}
+.fall-line{height:4px;background:linear-gradient(110deg,#a5b7ae,#64d8cb)}
+.fall-line:after{border-left-color:#64d8cb}
+.mechanism{background:linear-gradient(155deg,#f2efe6,#d9e3d8 80%);color:#152b25}
+.mechanism:after{content:"04 / 10개와 100개, 매입의 차이";color:rgba(21,43,37,.52)}
+.mechanism .eyebrow{color:#327985}
+.mechanism-top{max-width:840px;margin:0 auto 20px}
+.mechanism-top p:last-child{font-size:19px;color:#435d53}
+.mechanism .purchase-interaction{grid-template-columns:.68fr 1.32fr;gap:14px;margin-top:22px}
+.mechanism .purchase-controls{background:#193f35;border:0;padding:24px;color:#f7f4eb}
+.mechanism .control-title{font-size:21px;color:#fff}
+.mechanism .control-hint{font-size:16px;color:#d2e0d7}
+.mechanism .quantity-button{font-size:18px;min-height:54px}
+.mechanism .quantity-button.is-active{background:#55d0c5;border-color:#55d0c5;color:#102a24}
+.mechanism .purchase-visual{background:#fffdf6;border:1px solid rgba(21,43,37,.12);padding:22px;min-height:350px}
+.mechanism .purchase-visual .box-grid{height:215px;width:min(100%,450px)}
+.mechanism .purchase-explanation{font-size:19px}
+.mechanism .purchase-footnote{font-size:14px}
+.mechanism .quote{max-width:870px;margin:20px auto 0;font-size:17px;color:#183d32}
+.mechanism .mechanism-note{margin:18px auto 0;font-size:17px}
+.margin-section{background:radial-gradient(circle at 80% 35%,rgba(87,218,198,.23),transparent 30%),#0c211c;color:#f8f3e8}
+.margin-section:after{content:"05 / 가격 경쟁의 이면"}
+.margin-copy h2{font-size:clamp(43px,7vw,78px)}
+.margin-copy p:not(.eyebrow){font-size:clamp(18px,2vw,21px);color:#d6e2da;margin-top:15px}
+.profit-stamp{display:flex;align-items:baseline;gap:16px;margin:22px 0 27px;padding:15px 20px;border-left:5px solid #69ddd0;background:rgba(255,255,255,.07);width:fit-content}
+.profit-stamp span{font:700 15px var(--sans);color:#bdd5c9}
+.profit-stamp strong{font:900 clamp(42px,7vw,72px)/1 var(--sans);letter-spacing:-.07em;color:#75e0d3}
+.ending{min-height:100svh;background:radial-gradient(ellipse at 50% 0%,rgba(67,117,100,.35),transparent 48%),#101915;color:#f5f2e9}
+.ending:after{content:"06 / 마지막으로 남는 질문"}
+.ending-copy>p:first-child{font-size:clamp(22px,3vw,34px);line-height:1.4;max-width:850px}
+.final-quote{margin-top:26px;padding:clamp(21px,4vw,38px);background:#f4f0e6;color:#18342b;border-left:6px solid #58cabe;box-shadow:14px 17px 0 rgba(0,0,0,.2)}
+.final-quote p{font-size:clamp(17px,2.1vw,21px);line-height:1.65}
+.final-quote cite{font-size:15px}
+.last-line{font-size:clamp(29px,4.5vw,51px);color:#78e0d3;margin-top:32px}
+footer{background:#07100e;color:#c8d4cc;font-size:14px}
+.js-reveal{opacity:0;transform:translateY(28px) scale(.985);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js-reveal.is-visible{opacity:1;transform:none}
+@media(max-width:760px){
+main>section{min-height:100svh;padding:68px 19px 44px}
+main>section:after{top:28px;left:20px;font-size:10px}
+.shot-counter{right:16px;top:13px}
+.hero{padding:62px 18px 20px}
+.hero-inner{display:flex;flex-direction:column;align-items:stretch;gap:0;min-height:calc(100svh - 82px)}
+.hero-inner>div:first-child{order:2;padding:0 3px 8px}
+.hero .eyebrow{font-size:12px;margin-bottom:9px}
+.hero h1{font-size:clamp(38px,10.4vw,52px);line-height:1.04}
+.hero-copy{font-size:17px;margin-top:10px}
+.hero .scroll-cue{font-size:13px;margin-top:12px}
+.scene{order:1;height:47svh;min-height:310px;max-height:430px;margin:0 -5px 4px}
+.back-shelves{top:2%;height:85%}
+.shelf{top:11%;transform:translateX(-50%) rotateX(57deg) rotateZ(-7deg) scale(.83)}
+.injector{right:calc(50% - 137px);bottom:9%;transform:scale(.78) rotate(22deg) rotateY(-13deg)}
+.ticket{top:24%;width:220px;padding:14px 15px 17px}
+.ticket-value{font-size:36px}
+.ticket-label{font-size:10px}
+.ticket-note{font-size:12px}
+.supply-tag{top:8%;left:calc(50% + 58px);font-size:10px;padding:9px}
+.supply-tag:before{left:-245px;width:350px}
+.price-section .inner{padding-top:8px}
+.price-section h2,.section h2{font-size:clamp(34px,9vw,48px)}
+.price-intro{font-size:16px;line-height:1.42;margin:12px 0 17px}
+.cards{grid-template-columns:1fr 1fr;gap:8px}
+.drug-card{padding:14px 12px 16px}
+.drug-title{font-size:14px}.dose{font-size:12px}
+.drug-price{font-size:clamp(21px,6vw,29px);letter-spacing:-.055em;margin-top:15px}
+.drug-caption{font-size:12px}
+.compare-line{margin-top:11px;padding-top:10px;font-size:12px;gap:4px}
+.compare-line b{font-size:14px}
+.market-context{font-size:16px;line-height:1.45;margin-top:15px}
+.source{font-size:11px}
+.timeline-grid{grid-template-columns:1fr;gap:23px}
+.timeline-copy h2{font-size:clamp(38px,10vw,54px)}
+.timeline-copy p:last-child{font-size:16px;margin-top:12px}
+.trend-list{gap:10px}
+.trend{padding:15px}
+.trend-head{align-items:flex-start}.trend-head b{font-size:13px}.trend-head span{font-size:12px}
+.trend-values{margin-top:14px;gap:8px}
+.trend-old,.trend-now{font-size:12px}
+.trend-now strong{font-size:23px}
+.mechanism .mechanism-top{margin-bottom:12px}
+.mechanism .mechanism-top h2{font-size:clamp(31px,8.2vw,43px)}
+.mechanism .mechanism-top p:last-child{font-size:16px;line-height:1.45;margin-top:8px}
+.mechanism .purchase-interaction{grid-template-columns:1fr;gap:9px;margin-top:12px}
+.mechanism .purchase-controls{padding:14px 15px}
+.mechanism .control-title{font-size:17px}
+.mechanism .quantity-switch{margin-top:10px}
+.mechanism .quantity-button{min-height:44px;font-size:15px;padding:8px}
+.mechanism .control-hint{font-size:13px;margin-top:8px;line-height:1.4}
+.mechanism .purchase-visual{min-height:0;padding:13px 15px}
+.mechanism .purchase-visual-head strong{font-size:15px}
+.mechanism .purchase-visual-head span{font-size:11px}
+.mechanism .purchase-visual .box-grid{height:126px;margin:3px auto}
+.mechanism .purchase-explanation{font-size:15px;line-height:1.4}
+.mechanism .purchase-footnote{font-size:11px;line-height:1.35}
+.mechanism .quote{font-size:13px;line-height:1.45;margin-top:12px;padding-left:12px}
+.mechanism .mechanism-note{font-size:14px;margin-top:12px}
+.margin-copy h2{font-size:clamp(39px,10.5vw,56px)}
+.profit-stamp{gap:10px;margin:15px 0 18px;padding:12px 14px}
+.profit-stamp span{font-size:12px}
+.profit-stamp strong{font-size:clamp(39px,11vw,55px)}
+.margin-copy p:not(.eyebrow){font-size:16px;line-height:1.48;margin-top:11px}
+.ending-copy>p:first-child{font-size:21px}
+.final-quote{margin-top:20px;padding:20px 18px}
+.final-quote p{font-size:15px;line-height:1.55}
+.final-quote cite{font-size:13px}
+.last-line{font-size:clamp(27px,7.4vw,37px);margin-top:25px}
+}
+@media(max-width:380px){
+.hero h1{font-size:37px}.scene{height:43svh;min-height:290px}
+.drug-card{padding-left:10px;padding-right:10px}
+.drug-price{font-size:20px}
+.mechanism .quote{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+.js-reveal{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
-<div class="progress" aria-hidden="true"><i id="progress"></i></div>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div><div class="shot-counter" aria-hidden="true"><b id="shotNumber">01</b><span>/ 06</span></div>
 <main>
 <section class="hero" aria-labelledby="headline">
 <div class="hero-inner">
@@ -80,18 +253,14 @@
 </div>
 </div>
 </section>
-<section class="section"><div class="inner narration">
-<p>서울 소재 약국에서 판매하는 마운자로 2.5㎎ 4펜, 4주분의 최저가는 <strong>27만2000원</strong>입니다. 한국릴리가 지난해 8월 정한 공급가 27만8066원보다 <strong>6066원 낮습니다.</strong></p>
-<p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p>
-<p>일본에서 처방받은 비만치료제의 국내 반입이 허용된 가운데, 약국들 사이에선 1000원 차이의 가격 경쟁까지 벌어지고 있습니다.</p>
-</div></section>
+
 <section class="price-section"><div class="inner">
 <p class="eyebrow">서울 소재 약국 최저가</p><h2>공급가 밑으로 내려간<br>두 약의 가격</h2>
 <p class="price-intro">비대면 진료 플랫폼 닥터나우에 따르면 마운자로 2.5㎎ 4펜, 4주분의 최저가는 27만2000원입니다. 위고비 0.25㎎ 1펜, 4주분의 최저가는 21만2000원입니다.</p>
 <div class="cards">
 <article class="drug-card"><p class="drug-title">마운자로</p><p class="dose">2.5㎎ · 4펜 · 4주분</p><p class="drug-price">272,000원</p><p class="drug-caption">서울 약국 최저가</p><div class="compare-line"><span>공급가<br>278,066원</span><b>− 6,066원</b></div></article>
 <article class="drug-card"><p class="drug-title">위고비</p><p class="dose">0.25㎎ · 1펜 · 4주분</p><p class="drug-price">212,000원</p><p class="drug-caption">서울 약국 최저가</p><div class="compare-line"><span>공급가<br>216,000원 수준</span><b>− 4,000원</b></div></article>
-</div><p class="source">출처: 비대면 진료 플랫폼 닥터나우 및 기사 내 공급가 정보</p>
+</div><p class="market-context">일본에서 처방받은 비만치료제의 국내 반입이 허용된 가운데, 약국들 사이에선 1000원 차이의 가격 경쟁까지 벌어지고 있습니다.</p><p class="source">출처: 비대면 진료 플랫폼 닥터나우 및 기사 내 공급가 정보</p>
 </div></section>
 <section class="section timeline"><div class="inner timeline-grid">
 <div class="timeline-copy"><p class="eyebrow">계속 낮아지는 약값</p><h2>위고비는<br>2주 새 1만1000원 내려갔습니다</h2><p>마운자로는 석 달 사이 2500원, 위고비는 2주 남짓 사이 1만1000원 떨어졌습니다. 두 가격 변화의 기간은 다릅니다.</p></div>
@@ -122,7 +291,7 @@
 <div class="narration mechanism-note"><p>마운자로와 위고비는 건강보험이 적용되지 않는 비급여 의약품이어서 정부가 정한 가격 상한선이나 하한선도 없습니다.</p></div>
 </div></section>
 <section class="section margin-section"><div class="inner margin-grid">
-<div class="margin-copy"><p class="eyebrow">박리다매식 가격 경쟁</p><h2>가격은 내리고,<br>남는 돈도 줄었습니다</h2><p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p><p>한 약사는 최저가 광고로 환자를 모으기 위해 1000원, 2000원 단위로 가격을 깎으며 출혈 경쟁을 벌이고 있다고 말했습니다.</p><p>약값 인하 경쟁은 약국에만 그치지 않고, 병원에서 약을 직접 구매해 판매하는 원내 판매 가격에도 영향을 미치는 분위기라고 덧붙였습니다.</p></div>
+<div class="margin-copy"><p class="eyebrow">박리다매식 가격 경쟁</p><h2>가격은 내리고,<br>남는 돈도 줄었습니다</h2><div class="profit-stamp"><span>약국 판매 마진 추정</span><strong>1만원 미만</strong></div><p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p><p>한 약사는 최저가 광고로 환자를 모으기 위해 1000원, 2000원 단위로 가격을 깎으며 출혈 경쟁을 벌이고 있다고 말했습니다.</p><p>약값 인하 경쟁은 약국에만 그치지 않고, 병원에서 약을 직접 구매해 판매하는 원내 판매 가격에도 영향을 미치는 분위기라고 덧붙였습니다.</p></div>
 
 </div></section>
 <section class="ending"><div class="inner ending-copy">
@@ -159,8 +328,12 @@ buttons.forEach(function(item){var active=item===button;item.classList.toggle("i
 drawBoxes(count);
 });});
 drawBoxes(10);
+document.querySelectorAll("main>section").forEach(function(section){section.classList.add("js-reveal");});
+var scenes=document.querySelectorAll("main>section");var shotNumber=document.getElementById("shotNumber");
+if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add("is-visible");});},{threshold:.18});scenes.forEach(function(scene){observer.observe(scene);});}
+function setShot(){var mid=window.innerHeight*.52,index=0,best=Infinity;scenes.forEach(function(scene,i){var rect=scene.getBoundingClientRect(),dist=Math.abs((rect.top+Math.min(rect.height,window.innerHeight)/2)-mid);if(dist<best){best=dist;index=i;}});shotNumber.textContent=String(index+1).padStart(2,"0");}
 var bar=document.getElementById("progress");
-function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";}
+function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";setShot();}
 window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
 })();
 </script>
