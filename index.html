@@ -70,7 +70,7 @@
 .pharmacy-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .ai-credit{position:absolute;z-index:2;top:12px;right:12px;padding:9px 12px;background:rgba(0,0,0,.72);color:#fff;font:700 20px/1.25 var(--sans);letter-spacing:0}
 @media(max-width:760px){
-body *{font-size:20px!important;line-height:1.45!important}
+body *{font-size:20px!important;line-height:1.62!important;letter-spacing:0!important;word-spacing:.02em!important}
 .hero{min-height:0;padding:50px 18px 38px;display:block}
 .hero-inner{width:100%;display:flex;flex-direction:column;align-items:stretch;gap:18px}
 .hero h1{font-size:clamp(38px,10.2vw,46px)!important;line-height:1.12!important;letter-spacing:-.055em}
@@ -110,6 +110,13 @@ body *{font-size:20px!important;line-height:1.45!important}
 .ending-copy>p:first-child,.final-quote p,.final-quote cite,.last-line{font-size:20px!important;line-height:1.45!important}
 .final-quote{padding:20px 18px}
 footer,footer *{font-size:20px!important;line-height:1.4!important}
+/* Mobile readability: restore open Korean tracking and comfortable paragraph rhythm. */
+body{line-height:1.65}
+.hero h1,.price-section h2,.section h2,.margin-copy h2{line-height:1.22!important;letter-spacing:0!important;word-spacing:0!important}
+.hero-price strong,.drug-price,.trend-now strong,.profit-stamp strong{letter-spacing:0!important;word-spacing:0!important}
+.hero-copy,.price-intro,.market-context,.source,.timeline-copy p,.narration p,.trend-old,.trend-now,.control-hint,.purchase-explanation,.purchase-footnote,.quote,.mechanism-note,.margin-copy p,.final-quote p,.ending-copy>p:first-child,footer{line-height:1.62!important;letter-spacing:0!important;word-spacing:.02em!important}
+.narration p+p{margin-top:28px}
+.trend-list{gap:30px}
 }
 
 </style>
