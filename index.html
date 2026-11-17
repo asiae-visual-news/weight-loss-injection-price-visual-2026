@@ -278,13 +278,13 @@ h1{font-family:var(--sans);letter-spacing:-.025em}
 <article class="price-board mounjaro">
 <div class="board-head"><strong>마운자로</strong><span>서울 최저가</span></div>
 <figure class="product-photo"><img src="https://cphoto.asiae.co.kr/listimglink/1/2026100410185550097_1791076735.jpg" alt="마운자로 주사 펜과 제품 상자" loading="lazy"><figcaption>마운자로. 한국릴리 제공 연합뉴스</figcaption></figure>
-<p class="board-price">272,000원</p><p class="board-dose">2.5㎎ · 4펜 · 4주분</p>
+<p class="board-price" data-from="278066" data-to="272000" aria-label="약국 최저가 272,000원">272,000원</p><p class="board-dose">2.5㎎ · 4펜 · 4주분</p>
 <div class="board-rule"><span>공급가 278,066원</span><strong>− 6,066원</strong></div>
 </article>
 <article class="price-board wegovy">
 <div class="board-head"><strong>위고비</strong><span>서울 최저가</span></div>
 <figure class="product-photo"><img src="https://cphoto.asiae.co.kr/listimglink/1/2024101614034460966_1729055023.jpg" alt="위고비 국내 출시 행사장에 놓인 위고비 모형" loading="lazy"><figcaption>노보 노디스크의 비만치료제 위고비 한국 출시 행사장에 위고비 모형이 놓여 있다. 연합뉴스</figcaption></figure>
-<p class="board-price">212,000원</p><p class="board-dose">0.25㎎ · 1펜 · 4주분</p>
+<p class="board-price" data-from="216000" data-to="212000" aria-label="약국 최저가 212,000원">212,000원</p><p class="board-dose">0.25㎎ · 1펜 · 4주분</p>
 <div class="board-rule"><span>공급가 약 216,000원</span><strong>− 약 4,000원</strong></div>
 </article>
 </div>
@@ -365,6 +365,33 @@ requestAnimationFrame(function(){boxes.classList.add("is-animated");});
 }
 buttons.forEach(function(button){button.addEventListener("click",function(){drawBoxes(Number(button.dataset.count));});});
 animateCurrent();
+var priceCounters=document.querySelectorAll(".board-price[data-from][data-to]");
+function formatWon(value){return Math.round(value).toLocaleString("ko-KR")+"원";}
+function countDownPrice(node){
+if(node.dataset.counted==="true")return;
+node.dataset.counted="true";
+if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+var from=Number(node.dataset.from),to=Number(node.dataset.to),duration=1500,startTime=null;
+node.textContent=formatWon(from);
+function frame(now){
+if(startTime===null)startTime=now;
+var progress=Math.min((now-startTime)/duration,1),ease=1-Math.pow(1-progress,3);
+node.textContent=formatWon(progress===1?to:Math.round(from+(to-from)*ease));
+if(progress<1)requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+}
+if("IntersectionObserver" in window){
+var priceObserver=new IntersectionObserver(function(entries){
+entries.forEach(function(entry){
+if(entry.isIntersecting){
+entry.target.querySelectorAll(".board-price[data-from][data-to]").forEach(countDownPrice);
+priceObserver.unobserve(entry.target);
+}
+});
+},{threshold:.35});
+document.querySelectorAll(".price-board").forEach(function(board){priceObserver.observe(board);});
+}else{priceCounters.forEach(countDownPrice);}
 var rows=document.querySelectorAll(".fall-row");
 if("IntersectionObserver" in window){
 var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}});},{threshold:.45});
