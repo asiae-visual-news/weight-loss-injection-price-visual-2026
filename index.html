@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#142c39">
 <title>27만원에 팔아도, 1만원도 안 남는다고요?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=MaruBuri:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--black:#17182e;--navyblue:#354676;--mounjaro:#7a6bb4;--paper:#f3f3f8;--cream:#fbfbfd;--wegovy:#3567a8;--gray:#b4b8c8;--serif:"MaruBuri","Noto Serif KR",serif;--sans:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif}
 *{box-sizing:border-box}
@@ -228,6 +231,11 @@ h1{font-size:38px}
 .ending-note p{max-width:920px;margin:0 auto;font:600 24px/1.55 var(--sans);word-break:keep-all}
 .ending-note p+p{margin-top:18px;color:#51477f;font-weight:800}
 @media(max-width:760px){.ending-note{padding:40px 0 48px}.ending-note p{font-size:20px;line-height:1.65}.ending-note p+p{margin-top:15px}}
+
+
+/* 기본 서체: 본문과 인용은 마루부리, 제목·가격 정보는 산세리프 */
+body,.lead,.intro,.small-note,.buy-lead,.quote-inline,.uninsured,.field-quote,.ending-note p,.close blockquote,.photo figcaption,.product-photo figcaption{font-family:var(--serif)}
+h1{font-family:var(--sans);letter-spacing:-.025em}
 
 </style>
 </head>
