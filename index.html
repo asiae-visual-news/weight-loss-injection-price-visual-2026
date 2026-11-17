@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#111b17">
+<meta name="theme-color" content="#142c39">
 <title>27만원에 팔아도, 1만원도 안 남는다고요?</title>
 <style>
-:root{--black:#111b17;--green:#1d4034;--lime:#d6fa62;--paper:#f3f0e7;--cream:#fffdf6;--orange:#ff764c;--gray:#bbc2ba;--serif:"MaruBuri","Noto Serif KR",serif;--sans:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif}
+:root{--black:#142c39;--green:#315f73;--lime:#75adb9;--paper:#f2f6f8;--cream:#fbfdfe;--orange:#8289b2;--gray:#aebdc4;--serif:"MaruBuri","Noto Serif KR",serif;--sans:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--black);font:20px/1.62 var(--sans);letter-spacing:0}
@@ -36,8 +36,8 @@ h1{font:700 clamp(50px,6.7vw,88px)/1.15 var(--serif);letter-spacing:-.035em;word
 .intro strong{color:var(--green);font-weight:800}
 .price-boards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .price-board{min-height:305px;padding:28px 30px;position:relative;overflow:hidden}
-.price-board.mounjaro{background:var(--lime);color:var(--black)}
-.price-board.wegovy{background:var(--orange);color:var(--black)}
+.price-board.mounjaro{background:#e0eef1;color:var(--black);border-top:8px solid #75adb9}
+.price-board.wegovy{background:#e7e9f2;color:var(--black);border-top:8px solid #8289b2}
 .board-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
 .board-head strong{font:800 25px/1.35 var(--sans)}
 .board-head span{font:600 20px/1.4 var(--sans)}
@@ -169,6 +169,38 @@ h1{font-size:38px}
 .boxes[data-count="100"] .box{height:24px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Color system sampled from the supplied Mounjaro and Wegovy photographs. */
+.hero{background:#142c39}
+.photo img{border:0;background:#e8eef0}
+.photo figcaption{color:#dbe7eb;word-break:keep-all}
+.product-photo{margin-top:19px}
+.product-photo img{width:100%;height:190px;object-fit:contain;background:#fff}
+.product-photo figcaption{font:500 20px/1.5 var(--sans);margin-top:11px;word-break:keep-all;color:#263b45}
+.price-board.mounjaro .board-head strong,.price-board.mounjaro .board-rule strong{color:#3c7c89}
+.price-board.wegovy .board-head strong,.price-board.wegovy .board-rule strong{color:#59658f}
+.falls{background:#e5eef1;color:#142c39}
+.falls .intro{color:#142c39}
+.fall-row{border-color:#9eb1b9}
+.fall-name strong,.fall-delta{color:#477e91}
+.fall-visual:before{background:#9fb5bc}
+.fall-visual:after{border-left-color:#6b96a7}
+.fall-point{background:#e5eef1}
+.fall-point span{color:#526a75}
+.fall-point strong{color:#142c39}
+.buy-controls{background:#dce9ed}
+.toggle button[aria-pressed="true"]{background:#315f73;color:#fff}
+.profit-section{background:#dce8ed;color:#142c39}
+.receipt-amount{color:#3f7085}
+.close{background:#142c39}
+.close blockquote{border-left-color:#75adb9}
+@media(max-width:760px){
+.product-photo{margin-top:15px}
+.product-photo img{height:165px}
+.product-photo figcaption{font-size:20px;line-height:1.5}
+.photo figcaption{font-size:20px;line-height:1.5}
+}
+
 </style>
 </head>
 <body>
@@ -177,19 +209,12 @@ h1{font-size:38px}
 <div class="shell">
 <div class="hero-top">
 <div>
-<p class="kicker">마운자로·위고비 약값 경쟁</p>
 <h1>27만원에 팔아도,<br>1만원도 안 남는다고요?</h1>
-<p class="lead">약국 판매가가 제약사 공급가보다 낮아졌습니다. 약국은 어떻게 더 싸게 팔 수 있을까요?</p>
 </div>
 <figure class="photo">
-<img src="assets/pharmacy-counter.webp" alt="약국 카운터 위 비만치료제 주사 펜과 약 상자">
-<figcaption>AI 연출 이미지</figcaption>
+<img src="https://cphoto.asiae.co.kr/listimglink/1/2024101615181861154_1729059497.jpg" alt="서울 종로구 한 약국 유리문에 붙은 위고비 입고 안내문" loading="eager">
+<figcaption>글로벌 제약기업 노보 노디스크의 비만치료제 위고비가 국내에 출시된 16일 서울 종로구 한 약국에 위고비 입고 안내문이 붙어 있다. 사진=강진형 기자</figcaption>
 </figure>
-</div>
-<div class="price-drop">
-<div class="price-drop-head"><span>제약사 공급가</span><strong>278,066원</strong></div>
-<div class="price-drop-line" aria-hidden="true"></div>
-<div class="price-drop-result"><strong>272,000원</strong><span>서울 약국 최저가 · 공급가보다 6,066원 낮습니다</span></div>
 </div>
 </div>
 </section>
@@ -199,11 +224,13 @@ h1{font-size:38px}
 <div class="price-boards">
 <article class="price-board mounjaro">
 <div class="board-head"><strong>마운자로</strong><span>서울 최저가</span></div>
+<figure class="product-photo"><img src="https://cphoto.asiae.co.kr/listimglink/1/2026100410185550097_1791076735.jpg" alt="마운자로 주사 펜과 제품 상자" loading="lazy"><figcaption>마운자로. 한국릴리 제공 연합뉴스</figcaption></figure>
 <p class="board-price">272,000원</p><p class="board-dose">2.5㎎ · 4펜 · 4주분</p>
 <div class="board-rule"><span>공급가 278,066원</span><strong>− 6,066원</strong></div>
 </article>
 <article class="price-board wegovy">
 <div class="board-head"><strong>위고비</strong><span>서울 최저가</span></div>
+<figure class="product-photo"><img src="https://cphoto.asiae.co.kr/listimglink/1/2024101614034460966_1729055023.jpg" alt="위고비 국내 출시 행사장에 놓인 위고비 모형" loading="lazy"><figcaption>노보 노디스크의 비만치료제 위고비 한국 출시 행사장에 위고비 모형이 놓여 있다. 연합뉴스</figcaption></figure>
 <p class="board-price">212,000원</p><p class="board-dose">0.25㎎ · 1펜 · 4주분</p>
 <div class="board-rule"><span>공급가 약 216,000원</span><strong>− 약 4,000원</strong></div>
 </article>
@@ -231,19 +258,15 @@ h1{font-size:38px}
 <p class="buy-lead">약국 판매가가 공급가보다 낮아지는 이유는 약을 실제로 사들이는 가격인 <strong>사입가</strong>에 있습니다. 사입가는 도매상과 거래하는 물량과 결제 조건에 따라 달라집니다.</p>
 <div class="buy-stage">
 <div class="buy-controls">
-<p>같은 약도 매입 규모에 따라 거래 조건이 달라집니다. 상자 수를 바꿔 보세요.</p>
 <div class="toggle" role="group" aria-label="약 상자 수 선택">
 <button type="button" data-count="10" aria-pressed="true">10개 매입</button>
 <button type="button" data-count="100" aria-pressed="false">100개 매입</button>
 </div>
-<p class="buy-explain">실제 할인액은 공개되지 않았습니다. 상자 수는 거래 규모만 보여줍니다.</p>
 </div>
 <div class="box-room">
-<div class="box-room-head"><strong>약 상자 <span id="count">10</span>개</strong><span id="arrangement">5개씩 두 줄</span></div>
 <div class="boxes" id="boxes" data-count="10" aria-label="약 상자 10개">
 <div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>
 </div>
-<p class="box-caption" id="caption" aria-live="polite">소량 매입</p>
 </div>
 </div>
 <blockquote class="quote-inline">“10개를 사는 곳과 100개를 사는 곳의 거래 조건이 다르다”며 “규모가 큰 곳일수록 공급가보다 싸게 살 수 있다”고 말했습니다.</blockquote>
@@ -274,13 +297,11 @@ h1{font-size:38px}
 <script>
 (function(){
 var buttons=document.querySelectorAll(".toggle button"),boxes=document.getElementById("boxes");
-var count=document.getElementById("count"),arrangement=document.getElementById("arrangement"),caption=document.getElementById("caption");
 buttons.forEach(function(button){button.addEventListener("click",function(){
 var quantity=Number(button.dataset.count);
 buttons.forEach(function(item){item.setAttribute("aria-pressed",String(item===button));});
 boxes.dataset.count=String(quantity);boxes.setAttribute("aria-label","약 상자 "+quantity+"개");boxes.innerHTML="";
 for(var i=0;i<quantity;i++){var item=document.createElement("span");item.className="box";item.setAttribute("aria-hidden","true");boxes.appendChild(item);}
-count.textContent=String(quantity);arrangement.textContent=quantity===10?"5개씩 두 줄":"10개씩 열 줄";caption.textContent=quantity===10?"소량 매입":"대량 매입";
 });});
 })();
 </script>
