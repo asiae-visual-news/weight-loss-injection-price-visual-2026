@@ -233,6 +233,33 @@ html{scroll-behavior:auto}
 *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 .js-reveal{opacity:1;transform:none}
 }
+
+/* Each frame enters with its own motion cue, like a short-form cut. */
+.price-section .drug-card{opacity:0;transform:perspective(900px) translateY(26px) rotateX(5deg);transform-origin:center bottom}
+.price-section.is-visible .drug-card{animation:tagSwing .72s cubic-bezier(.2,.8,.2,1) both}
+.price-section.is-visible .drug-card:nth-child(2){animation-delay:.2s}
+@keyframes tagSwing{to{opacity:1;transform:perspective(900px) translateY(0) rotateX(0)}}
+.timeline .trend{opacity:0;transform:translateX(35px)}
+.timeline.is-visible .trend{animation:trendCut .65s cubic-bezier(.2,.8,.2,1) both}
+.timeline.is-visible .trend:nth-child(2){animation-delay:.18s}
+@keyframes trendCut{to{opacity:1;transform:translateX(0)}}
+.profit-stamp{clip-path:inset(0 100% 0 0);transition:clip-path .85s cubic-bezier(.2,.8,.2,1)}
+.margin-section.is-visible .profit-stamp{clip-path:inset(0 0 0 0)}
+.mechanism .purchase-visual{box-shadow:0 22px 50px rgba(15,44,35,.13);perspective:800px}
+.mechanism .purchase-visual .box-grid{perspective:800px}
+.mechanism .box-grid g{transform-box:fill-box;transform-origin:center;animation:boxPop .42s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--delay,0ms)}
+@keyframes boxPop{from{opacity:0;transform:translateY(9px) scale(.83)}to{opacity:1;transform:translateY(0) scale(1)}}
+.price-section .drug-price{transition:color .25s}
+.price-section.is-visible .compare-line b{animation:cyanPulse .65s .45s both}
+@keyframes cyanPulse{50%{text-shadow:0 0 17px rgba(85,208,197,.8);transform:scale(1.07)}}
+@media(max-width:760px){
+.price-section .drug-card{transform:translateY(16px)}
+.timeline .trend{transform:translateY(14px)}
+}
+@media(prefers-reduced-motion:reduce){
+.price-section .drug-card,.timeline .trend,.mechanism .box-grid g,.price-section.is-visible .compare-line b{animation:none!important;opacity:1;transform:none;text-shadow:none}
+.profit-stamp{clip-path:none;transition:none}
+}
 </style>
 </head>
 <body>
@@ -316,7 +343,7 @@ var totalW=cols*w+(cols-1)*gx+d,totalH=rows*h+(rows-1)*gy+d;
 var sx=(220-totalW)/2+d,sy=(150-totalH)/2+d,out="";
 for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){
 var x=sx+c*(w+gx),y=sy+r*(h+gy);
-out+='<g><polygon class="box-top" points="'+x+','+y+' '+(x+d)+','+(y-d)+' '+(x+w+d)+','+(y-d)+' '+(x+w)+','+y+'"></polygon><polygon class="box-side" points="'+(x+w)+','+y+' '+(x+w+d)+','+(y-d)+' '+(x+w+d)+','+(y+h-d)+' '+(x+w)+','+(y+h)+'"></polygon><rect class="box-front" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="1"></rect></g>';
+out+='<g style="--delay:'+Math.min(r*cols+c,40)*7+'ms"><polygon class="box-top" points="'+x+','+y+' '+(x+d)+','+(y-d)+' '+(x+w+d)+','+(y-d)+' '+(x+w)+','+y+'"></polygon><polygon class="box-side" points="'+(x+w)+','+y+' '+(x+w+d)+','+(y-d)+' '+(x+w+d)+','+(y+h-d)+' '+(x+w)+','+(y+h)+'"></polygon><rect class="box-front" x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="1"></rect></g>';
 }}
 svg.innerHTML=out;svg.setAttribute("aria-label","약 상자 "+count+"개");
 label.textContent="약 상자 "+count+"개";countLabel.textContent=count===10?"5개씩 두 줄":"10개씩 열 줄";
@@ -328,9 +355,8 @@ buttons.forEach(function(item){var active=item===button;item.classList.toggle("i
 drawBoxes(count);
 });});
 drawBoxes(10);
-document.querySelectorAll("main>section").forEach(function(section){section.classList.add("js-reveal");});
 var scenes=document.querySelectorAll("main>section");var shotNumber=document.getElementById("shotNumber");
-if("IntersectionObserver" in window){var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add("is-visible");});},{threshold:.18});scenes.forEach(function(scene){observer.observe(scene);});}
+if("IntersectionObserver" in window){scenes.forEach(function(section){section.classList.add("js-reveal");});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add("is-visible");});},{threshold:.18});scenes.forEach(function(scene){observer.observe(scene);});}
 function setShot(){var mid=window.innerHeight*.52,index=0,best=Infinity;scenes.forEach(function(scene,i){var rect=scene.getBoundingClientRect(),dist=Math.abs((rect.top+Math.min(rect.height,window.innerHeight)/2)-mid);if(dist<best){best=dist;index=i;}});shotNumber.textContent=String(index+1).padStart(2,"0");}
 var bar=document.getElementById("progress");
 function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";setShot();}
