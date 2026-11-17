@@ -70,10 +70,10 @@ body{background:#0d1715;color:#f4f3ec;font-size:20px}
 .shot-counter{position:fixed;z-index:55;right:22px;top:18px;display:flex;align-items:baseline;gap:5px;color:#f3f5ef;font:700 12px var(--sans);letter-spacing:.1em;text-shadow:0 2px 9px #000}
 .shot-counter b{font-size:20px;color:#79ded3}
 main>section{position:relative;min-height:100svh;padding:clamp(72px,9vh,112px) clamp(22px,6vw,84px);display:grid;align-items:center;overflow:hidden}
-main>section:after{position:absolute;z-index:0;top:30px;left:clamp(22px,6vw,84px);font:800 11px var(--sans);letter-spacing:.2em;color:rgba(255,255,255,.42);pointer-events:none}
+
 main>section>*{position:relative;z-index:1}
 .hero{min-height:100svh;background:radial-gradient(ellipse at 66% 44%,rgba(70,173,150,.28),transparent 34%),linear-gradient(130deg,#07100e,#102922 56%,#07100e)}
-.hero:after{content:"01 / 가격이 무너진 첫 장면"}
+
 .hero-inner{width:min(1220px,100%);gap:clamp(10px,3vw,50px)}
 .hero h1{font-size:clamp(46px,7vw,88px);line-height:1.05;text-wrap:balance}
 .hero h1 em{color:#65ded0}
@@ -89,7 +89,7 @@ main>section>*{position:relative;z-index:1}
 .injector{filter:drop-shadow(12px 16px 10px rgba(0,0,0,.35))}
 .scroll-cue{font-size:15px}
 .price-section{background:radial-gradient(circle at 85% 18%,rgba(71,142,127,.35),transparent 30%),linear-gradient(145deg,#13382f,#102b25 60%,#091a17);color:#f7f3e9}
-.price-section:after{content:"02 / 약값은 공급가 아래로"}
+
 .price-section .inner,.timeline-grid,.mechanism>.inner,.margin-grid,.ending-copy{width:min(1050px,100%);margin:auto}
 .price-section .eyebrow,.timeline .eyebrow,.mechanism .eyebrow,.margin-section .eyebrow{font-size:14px;letter-spacing:.17em;color:#8ce1d5}
 .price-section h2,.section h2{font-size:clamp(38px,5.8vw,68px);line-height:1.05;letter-spacing:-.05em}
@@ -105,7 +105,7 @@ main>section>*{position:relative;z-index:1}
 .market-context{margin-top:20px;color:#e0e9e1;font-size:18px}
 .source{font-size:13px;margin-top:8px}
 .timeline{background:radial-gradient(ellipse at 20% 15%,rgba(76,139,128,.3),transparent 34%),#101e1b;color:#f8f4e9}
-.timeline:after{content:"03 / 내려가는 속도는 다르다"}
+
 .timeline-grid{grid-template-columns:1fr 1fr;gap:clamp(25px,5vw,68px)}
 .timeline-copy h2{font-size:clamp(39px,5.5vw,66px)}
 .timeline-copy p:last-child{color:#c5d5cc;font-size:18px}
@@ -119,7 +119,7 @@ main>section>*{position:relative;z-index:1}
 .fall-line{height:4px;background:linear-gradient(110deg,#a5b7ae,#64d8cb)}
 .fall-line:after{border-left-color:#64d8cb}
 .mechanism{background:linear-gradient(155deg,#f2efe6,#d9e3d8 80%);color:#152b25}
-.mechanism:after{content:"04 / 10개와 100개, 매입의 차이";color:rgba(21,43,37,.52)}
+
 .mechanism .eyebrow{color:#327985}
 .mechanism-top{max-width:840px;margin:0 auto 20px}
 .mechanism-top p:last-child{font-size:19px;color:#435d53}
@@ -136,14 +136,14 @@ main>section>*{position:relative;z-index:1}
 .mechanism .quote{max-width:870px;margin:20px auto 0;font-size:17px;color:#183d32}
 .mechanism .mechanism-note{margin:18px auto 0;font-size:17px}
 .margin-section{background:radial-gradient(circle at 80% 35%,rgba(87,218,198,.23),transparent 30%),#0c211c;color:#f8f3e8}
-.margin-section:after{content:"05 / 가격 경쟁의 이면"}
+
 .margin-copy h2{font-size:clamp(43px,7vw,78px)}
 .margin-copy p:not(.eyebrow){font-size:clamp(18px,2vw,21px);color:#d6e2da;margin-top:15px}
 .profit-stamp{display:flex;align-items:baseline;gap:16px;margin:22px 0 27px;padding:15px 20px;border-left:5px solid #69ddd0;background:rgba(255,255,255,.07);width:fit-content}
 .profit-stamp span{font:700 15px var(--sans);color:#bdd5c9}
 .profit-stamp strong{font:900 clamp(42px,7vw,72px)/1 var(--sans);letter-spacing:-.07em;color:#75e0d3}
 .ending{min-height:100svh;background:radial-gradient(ellipse at 50% 0%,rgba(67,117,100,.35),transparent 48%),#101915;color:#f5f2e9}
-.ending:after{content:"06 / 마지막으로 남는 질문"}
+
 .ending-copy>p:first-child{font-size:clamp(22px,3vw,34px);line-height:1.4;max-width:850px}
 .final-quote{margin-top:26px;padding:clamp(21px,4vw,38px);background:#f4f0e6;color:#18342b;border-left:6px solid #58cabe;box-shadow:14px 17px 0 rgba(0,0,0,.2)}
 .final-quote p{font-size:clamp(17px,2.1vw,21px);line-height:1.65}
@@ -154,7 +154,7 @@ footer{background:#07100e;color:#c8d4cc;font-size:14px}
 .js-reveal.is-visible{opacity:1;transform:none}
 @media(max-width:760px){
 main>section{min-height:100svh;padding:68px 19px 44px}
-main>section:after{top:28px;left:20px;font-size:10px}
+
 .shot-counter{right:16px;top:13px}
 .hero{padding:62px 18px 20px}
 .hero-inner{display:flex;flex-direction:column;align-items:stretch;gap:0;min-height:calc(100svh - 82px)}
@@ -260,29 +260,36 @@ html{scroll-behavior:auto}
 .price-section .drug-card,.timeline .trend,.mechanism .box-grid g,.price-section.is-visible .compare-line b{animation:none!important;opacity:1;transform:none;text-shadow:none}
 .profit-stamp{clip-path:none;transition:none}
 }
+
+.pharmacy-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% center}
+.scene{overflow:hidden;border:1px solid rgba(240,249,237,.2);border-radius:4px;box-shadow:0 35px 90px rgba(0,0,0,.42)}
+.scene:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(180deg,rgba(4,18,14,.14),transparent 28%,rgba(4,18,14,.1) 70%,rgba(4,18,14,.32));pointer-events:none}
+.ai-credit{position:absolute;z-index:7;top:13px;right:13px;padding:8px 11px;background:rgba(0,0,0,.72);color:#fff;font:700 14px/1.2 var(--sans);letter-spacing:.02em}
+.hero .ticket,.hero .supply-tag{z-index:4}
+.hero .ticket{animation:priceDrop 1.35s cubic-bezier(.2,.8,.2,1) both}
+.shot-counter{display:none}
+
 </style>
 </head>
 <body>
-<div class="progress" aria-hidden="true"><i id="progress"></i></div><div class="shot-counter" aria-hidden="true"><b id="shotNumber">01</b><span>/ 06</span></div>
+<div class="progress" aria-hidden="true"><i id="progress"></i></div>
 <main>
 <section class="hero" aria-labelledby="headline">
 <div class="hero-inner">
 <div>
-<p class="eyebrow">비만치료제 가격 경쟁</p>
+
 <h1 id="headline">27만원에 파는데,<br><em>1만원도 안 남는다고요?</em></h1>
 <p class="hero-copy">공급가보다 낮아진 약값. 약국 사이 가격 경쟁은 어디까지 내려갈까요?</p>
-<p class="scroll-cue">스크롤을 내려 가격표를 확인해보세요</p>
+
 </div>
-<div class="scene" aria-label="약국 카운터 위에서 공급가보다 낮은 판매가를 보여주는 3차원 가격표">
-<div class="back-shelves" aria-hidden="true"></div><div class="shelf" aria-hidden="true"><i class="medbox"></i><i class="medbox"></i><i class="medbox"></i></div><div class="injector" aria-hidden="true"><i></i></div>
-<div class="ticket"><span class="ticket-label">마운자로 2.5㎎ · 4주분 최저가</span><strong class="ticket-value">272,000원</strong><p class="ticket-note">공급가보다 6,066원 낮습니다</p></div>
-<div class="supply-tag">공급가 278,066원</div><div class="counter" aria-hidden="true"></div>
+<div class="scene" aria-label="약국 카운터에 놓인 주사 펜과 약 상자 장면"><img class="pharmacy-photo" src="./assets/pharmacy-counter.webp" alt="약국 카운터 위 주사 펜과 약 상자" width="1672" height="941" fetchpriority="high"><span class="ai-credit">AI 연출 이미지</span><div class="ticket"><span class="ticket-label">마운자로 2.5㎎ · 4주분 최저가</span><strong class="ticket-value">272,000원</strong><p class="ticket-note">공급가보다 6,066원 낮습니다</p></div>
+<div class="supply-tag">공급가 278,066원</div>
 </div>
 </div>
 </section>
 
 <section class="price-section"><div class="inner">
-<p class="eyebrow">서울 소재 약국 최저가</p><h2>공급가 밑으로 내려간<br>두 약의 가격</h2>
+
 <p class="price-intro">비대면 진료 플랫폼 닥터나우에 따르면 마운자로 2.5㎎ 4펜, 4주분의 최저가는 27만2000원입니다. 위고비 0.25㎎ 1펜, 4주분의 최저가는 21만2000원입니다.</p>
 <div class="cards">
 <article class="drug-card"><p class="drug-title">마운자로</p><p class="dose">2.5㎎ · 4펜 · 4주분</p><p class="drug-price">272,000원</p><p class="drug-caption">서울 약국 최저가</p><div class="compare-line"><span>공급가<br>278,066원</span><b>− 6,066원</b></div></article>
@@ -290,22 +297,22 @@ html{scroll-behavior:auto}
 </div><p class="market-context">일본에서 처방받은 비만치료제의 국내 반입이 허용된 가운데, 약국들 사이에선 1000원 차이의 가격 경쟁까지 벌어지고 있습니다.</p><p class="source">출처: 비대면 진료 플랫폼 닥터나우 및 기사 내 공급가 정보</p>
 </div></section>
 <section class="section timeline"><div class="inner timeline-grid">
-<div class="timeline-copy"><p class="eyebrow">계속 낮아지는 약값</p><h2>위고비는<br>2주 새 1만1000원 내려갔습니다</h2><p>마운자로는 석 달 사이 2500원, 위고비는 2주 남짓 사이 1만1000원 떨어졌습니다. 두 가격 변화의 기간은 다릅니다.</p></div>
+<div class="timeline-copy"><p>마운자로는 석 달 사이 2500원, 위고비는 2주 남짓 사이 1만1000원 떨어졌습니다. 두 가격 변화의 기간은 다릅니다.</p></div>
 <div class="trend-list">
 <article class="trend"><div class="trend-head"><b>마운자로 · 2.5㎎ 4펜</b><span>석 달 사이 2500원 하락</span></div><div class="trend-values"><span class="trend-old">8월<br>27만4500원</span><i class="fall-line" aria-hidden="true"></i><span class="trend-now">11월 최저가<strong>27만2000원</strong></span></div></article>
 <article class="trend"><div class="trend-head"><b>위고비 · 0.25㎎ 1펜</b><span>2주 남짓 사이 1만1000원 하락</span></div><div class="trend-values"><span class="trend-old">10월 말<br>22만3000원</span><i class="fall-line" aria-hidden="true"></i><span class="trend-now">11월 최저가<strong>21만2000원</strong></span></div></article>
 </div>
 </div></section>
 <section class="section mechanism"><div class="inner">
-<div class="mechanism-top"><p class="eyebrow">공급가와 사입가는 다릅니다</p><h2>약국은 어떻게<br>공급가보다 싸게 팔까요?</h2><p>공급가는 제약사가 정한 기준 가격입니다. 사입가는 약국이 도매상에서 약을 살 때 물량과 결제 조건에 따라 정해집니다.</p></div>
+<div class="mechanism-top"><p>공급가는 제약사가 정한 기준 가격입니다. 사입가는 약국이 도매상에서 약을 살 때 물량과 결제 조건에 따라 정해집니다.</p></div>
 <div class="purchase-interaction">
 <div class="purchase-controls">
-<p class="control-title">약국의 매입 수량을 바꿔보세요</p>
+
 <div class="quantity-switch" role="group" aria-label="약국의 매입 수량 선택">
 <button type="button" class="quantity-button is-active" data-quantity="10" aria-pressed="true">10개 구매</button>
 <button type="button" class="quantity-button" data-quantity="100" aria-pressed="false">100개 구매</button>
 </div>
-<p class="control-hint">수량에 따라 달라질 수 있는 약국의 매입 조건을 살펴봅니다.</p>
+
 </div>
 <div class="purchase-visual">
 <div class="purchase-visual-head"><strong id="purchaseLabel">약 상자 10개</strong><span id="purchaseCount">5개씩 두 줄</span></div>
@@ -318,13 +325,13 @@ html{scroll-behavior:auto}
 <div class="narration mechanism-note"><p>마운자로와 위고비는 건강보험이 적용되지 않는 비급여 의약품이어서 정부가 정한 가격 상한선이나 하한선도 없습니다.</p></div>
 </div></section>
 <section class="section margin-section"><div class="inner margin-grid">
-<div class="margin-copy"><p class="eyebrow">박리다매식 가격 경쟁</p><h2>가격은 내리고,<br>남는 돈도 줄었습니다</h2><div class="profit-stamp"><span>약국 판매 마진 추정</span><strong>1만원 미만</strong></div><p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p><p>한 약사는 최저가 광고로 환자를 모으기 위해 1000원, 2000원 단위로 가격을 깎으며 출혈 경쟁을 벌이고 있다고 말했습니다.</p><p>약값 인하 경쟁은 약국에만 그치지 않고, 병원에서 약을 직접 구매해 판매하는 원내 판매 가격에도 영향을 미치는 분위기라고 덧붙였습니다.</p></div>
+<div class="margin-copy"><div class="profit-stamp"><span>약국 판매 마진 추정</span><strong>1만원 미만</strong></div><p>업계에서는 약국이 마운자로와 위고비를 팔아 남기는 돈이 1만원에 못 미치는 것으로 추정하고 있습니다.</p><p>한 약사는 최저가 광고로 환자를 모으기 위해 1000원, 2000원 단위로 가격을 깎으며 출혈 경쟁을 벌이고 있다고 말했습니다.</p><p>약값 인하 경쟁은 약국에만 그치지 않고, 병원에서 약을 직접 구매해 판매하는 원내 판매 가격에도 영향을 미치는 분위기라고 덧붙였습니다.</p></div>
 
 </div></section>
 <section class="ending"><div class="inner ending-copy">
 <p>진료비와 약값이 함께 내려가면서, 박리다매식 가격 경쟁이 무분별한 처방으로 이어질 수 있다는 우려도 나옵니다.</p>
 <div class="final-quote"><p>“위고비·마운자로 같은 글루카곤 유사 펩타이드(GLP)-1 계열 비만 치료제는 전문의약품으로, 환자별 건강 상태와 장기적인 치료 계획을 고려한 처방이 중요하다”며 “비만치료제를 투여하는 환자가 늘어나는 상황에서 가격 경쟁까지 과열되면 이러한 처방 원칙보다 환자 유치와 매출 확대에 치중하는 행위가 늘어날 수 있다”고 말했습니다.</p><cite>한 대학병원 교수</cite></div>
-<p class="last-line">가격 경쟁이 처방의 기준까지 흔들게 될까요?</p>
+
 </div></section>
 </main>
 <footer>가격 정보는 기사에 기재된 시점의 서울 소재 약국 최저가와 공급가 기준입니다.</footer>
@@ -355,11 +362,10 @@ buttons.forEach(function(item){var active=item===button;item.classList.toggle("i
 drawBoxes(count);
 });});
 drawBoxes(10);
-var scenes=document.querySelectorAll("main>section");var shotNumber=document.getElementById("shotNumber");
+var scenes=document.querySelectorAll("main>section");
 if("IntersectionObserver" in window){scenes.forEach(function(section){section.classList.add("js-reveal");});var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting)entry.target.classList.add("is-visible");});},{threshold:.18});scenes.forEach(function(scene){observer.observe(scene);});}
-function setShot(){var mid=window.innerHeight*.52,index=0,best=Infinity;scenes.forEach(function(scene,i){var rect=scene.getBoundingClientRect(),dist=Math.abs((rect.top+Math.min(rect.height,window.innerHeight)/2)-mid);if(dist<best){best=dist;index=i;}});shotNumber.textContent=String(index+1).padStart(2,"0");}
 var bar=document.getElementById("progress");
-function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";setShot();}
+function update(){var max=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(max>0?window.scrollY/max*100:0)+"%";}
 window.addEventListener("scroll",update,{passive:true});window.addEventListener("resize",update);update();
 })();
 </script>
