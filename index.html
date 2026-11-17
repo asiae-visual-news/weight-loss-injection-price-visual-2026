@@ -372,12 +372,14 @@ function countDownPrice(node){
 if(node.dataset.counted==="true")return;
 node.dataset.counted="true";
 if(window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
-var from=Number(node.dataset.from),to=Number(node.dataset.to),duration=1500,startTime=null;
+var from=Number(node.dataset.from),to=Number(node.dataset.to),duration=1800,startTime=null,range=(from-to)*.18;
 node.textContent=formatWon(from);
 function frame(now){
 if(startTime===null)startTime=now;
-var progress=Math.min((now-startTime)/duration,1),ease=1-Math.pow(1-progress,3);
-node.textContent=formatWon(progress===1?to:Math.round(from+(to-from)*ease));
+var progress=Math.min((now-startTime)/duration,1),ease=1-Math.pow(1-progress,2.4);
+var baseline=from+(to-from)*ease;
+var fluctuation=Math.sin(progress*Math.PI*12)*range*(1-progress);
+node.textContent=formatWon(progress===1?to:Math.round(baseline+fluctuation));
 if(progress<1)requestAnimationFrame(frame);
 }
 requestAnimationFrame(frame);
